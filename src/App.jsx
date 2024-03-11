@@ -1,13 +1,17 @@
-import './App.css'
+import "./App.css";
+import ArticlesPage from "./components/ArticlesPage/ArticlesPage";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 
 function App() {
-
-  return (
-    <>
-    <h1>Header</h1>
-    <p>All working...</p>
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <Routes>
+                <Route path="/" element={<ArticlesPage />} />
+            </Routes>
+        </>
+    );
 }
 
-export default App
+export default App;
