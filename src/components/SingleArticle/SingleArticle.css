@@ -10,8 +10,7 @@ img {
     display: grid;
     grid-template-areas:
         "article-topic article-date"
-        "article-author article-time"
-        "article-author article-votes";
+        "article-author article-time";
     padding-bottom: 0.5em;
 }
 
@@ -32,11 +31,6 @@ img {
 
 .article-time {
     grid-area: article-time;
-    margin: 0;
-}
-
-.article-votes {
-    grid-area: article-votes;
     margin: 0;
 }
 

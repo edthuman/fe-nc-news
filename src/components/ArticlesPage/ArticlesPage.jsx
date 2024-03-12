@@ -15,12 +15,13 @@ function ArticlesPage() {
     }, []);
 
     return (areArticlesLoading ? 
-        <Loading/> : <>
+        <Loading/> : (<>
             <h2>Showing all articles</h2>
             {articles.map((article) => {
                 return <ArticleCard key={article.article_id} article={article}/>
             })}
-            </>)
+        </>)
+        )
 };
 
 export default ArticlesPage;

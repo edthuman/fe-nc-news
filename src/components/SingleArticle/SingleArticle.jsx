@@ -4,6 +4,7 @@ import "./SingleArticle.css";
 import Loading from "../Loading/Loading";
 import CommentsList from "./CommentsList";
 import { getSingleArticle } from "../../api";
+import VoteArticle from "./VoteArticle";
 
 function SingleArticle() {
     const { article_id } = useParams();
@@ -44,8 +45,8 @@ function SingleArticle() {
                         postedDateTime.slice(0, 4)}
                 </p>
                 <p className="article-time">{postedDateTime.slice(11, 16)}</p>
-                <p className="article-votes">Votes: {article.votes}</p>
             </div>
+            <VoteArticle article_id={article_id} votes={article.votes}/>
             <img src={article.article_img_url} />
             <p>{article.body}</p>
             <h3>Comments ({article.comment_count})</h3>
