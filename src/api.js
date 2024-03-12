@@ -18,14 +18,28 @@ function getSingleArticle(article_id) {
         });
 }
 
-function getCommentsFromArticleID({article_id}) {
+function getCommentsFromArticleID({ article_id }) {
     return axios
         .get(
             `https://northcoders-news-c5lb.onrender.com/api/articles/${article_id}/comments`
         )
         .then((response) => {
-            return response.data.comments
-        })
+            return response.data.comments;
+        });
 }
 
-export { getAllArticles, getSingleArticle, getCommentsFromArticleID };
+function updateArticleVotes(article_id, voteIncrement) {
+    const patchVoteObject = { inc_votes: voteIncrement };
+
+    return axios.patch(
+        `https://northcoders-news-c5lb.onrender.com/api/articles/${article_id}`,
+        patchVoteObject
+    );
+}
+
+export {
+    getAllArticles,
+    getSingleArticle,
+    getCommentsFromArticleID,
+    updateArticleVotes,
+};

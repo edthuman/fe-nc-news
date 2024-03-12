@@ -1,0 +1,21 @@
+#article-voting {
+    display: block;
+    border: solid purple 2px;
+    max-width: fit-content;
+    margin: 0em 0em 0em auto;
+    padding: 0;
+    p {
+        margin: 0.3em;
+        text-align: right;
+    }
+}
+
+#vote-buttons {
+    padding: 0em 0em 0em auto;
+    display: flex;
+    justify-content:right;
+}
+
+#article-vote-error {
+    font-size: 0.9em;
+}
