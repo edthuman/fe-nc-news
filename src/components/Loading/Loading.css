@@ -1,3 +1,9 @@
 #loading {
+    padding: auto;
+    margin: auto;
+}
+
+#loading-text {
     font-size: xx-large;
+    width: 400px;
 }
