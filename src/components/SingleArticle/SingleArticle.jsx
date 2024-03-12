@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./SingleArticle.css";
 import Loading from "../Loading/Loading";
@@ -19,9 +19,17 @@ function SingleArticle() {
     }, []);
 
     return isArticleLoading ? (
-        <Loading />
+        <>
+            <Link to="/" className="back-link">
+                {"<<Back to all articles"}
+            </Link>
+            <Loading />
+        </>
     ) : (
         <>
+            <Link to="/" className="back-link">
+                {"<<Back to all articles"}
+            </Link>
             <h2>{article.title}</h2>
             <div id="single-article-details">
                 <p className="article-topic">

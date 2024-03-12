@@ -45,3 +45,7 @@ img {
 .article-votes {
     margin: 0em 0em 0em auto;
 }
+
+.back-link {
+    text-decoration: none;
+}
