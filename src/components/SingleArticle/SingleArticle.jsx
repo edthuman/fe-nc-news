@@ -1,26 +1,17 @@
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import "./SingleArticle.css"
 import Loading from "../Loading/Loading";
+import CommentsList from "./CommentsList";
+import { getSingleArticle } from "../../api";
 
 function SingleArticle() {
     const { article_id } = useParams();
     const [article, setArticle] = useState({});
     const [isArticleLoading, setIsArticleLoading] = useState(true)
 
-    function getArticleInformation() {
-        return axios
-            .get(
-                `https://northcoders-news-c5lb.onrender.com/api/articles/${article_id}`
-            )
-            .then((response) => {
-                return response.data.article;
-            });
-    }
-
     useEffect(() => {
-        getArticleInformation().then((returnedArticle) => {
+        getSingleArticle(article_id).then((returnedArticle) => {
             setArticle(returnedArticle);
             setIsArticleLoading(false)
         });
@@ -35,8 +26,8 @@ function SingleArticle() {
             <p>Votes: {article.votes}</p>
             <img src={article.article_img_url}/>
             <p>{article.body}</p>
-            <p>Comments: {article.comment_count}</p>
-
+            <h3>Comments ({article.comment_count})</h3>
+            <CommentsList article_id={article_id}/>
         </>)
     );
 }
