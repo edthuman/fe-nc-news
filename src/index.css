@@ -3,3 +3,7 @@
   max-width: min-content;
   margin: auto;
 }
+
+img {
+  max-width: 90vw;
+}

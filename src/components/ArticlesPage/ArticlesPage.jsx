@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import Loading from "../Loading/Loading";
 import { getAllArticles } from "../../api";
+import "./ArticlesPage.css"
 
 function ArticlesPage() {
     const [articles, setArticles] = useState([]);
