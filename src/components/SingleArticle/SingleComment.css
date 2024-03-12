@@ -1,0 +1,34 @@
+.comment {
+    border: solid 2px green;
+}
+
+header {
+    display: grid;
+    grid-template-areas: 
+        "comment-author comment-date"
+        "comment-author comment-time";
+        padding: 1em;
+}
+
+.comment-author {
+    grid-area: comment-author;
+    margin: 0;
+}
+
+.comment-date {
+    grid-area: comment-date;
+    margin: 0em 0em 0em auto;
+}
+
+.comment-time {
+    grid-area: comment-time;
+    margin: 0em 0em 0em auto;
+}
+
+.comment-body { 
+    margin: 0 1em;
+}
+
+.comment-votes {
+    margin: 1em;
+}
