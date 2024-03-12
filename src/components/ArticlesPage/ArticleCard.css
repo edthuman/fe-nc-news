@@ -5,3 +5,41 @@ article {
 img {
     width: 400px;
 }
+
+.article-card-details {
+    display: grid;
+    grid-template-areas: 
+        "article-topic article-date"
+        "article-author article-time"
+        "article-author article-votes";
+    padding: 0em 0.5em 1em 0.5em;
+}
+
+.article-author {
+    grid-area: article-author;
+    margin: 0;
+}
+
+.article-date {
+    grid-area: article-date;
+    margin: 0;
+}
+
+.article-topic {
+    grid-area: article-topic;
+    margin: 0;
+}
+
+.article-time {
+    grid-area: article-time;
+    margin: 0;
+}
+
+.article-votes {
+    grid-area: article-votes;
+    margin: 0;
+}
+
+.article-date, .article-time, .article-votes {
+    margin: 0em 0em 0em auto;
+}

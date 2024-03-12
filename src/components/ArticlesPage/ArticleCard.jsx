@@ -15,13 +15,14 @@ function ArticleCard({ article }) {
         <Link to={`/articles/${article.article_id}`}>
             <article>
                 <h3>{article.title}</h3>
-                <p>Topic: {article.topic}</p>
-                <p>Votes: {article.votes}</p>
-                <p>Posted by: {article.author}</p>
-                <p>
-                    Posted {postedTime} on {postedDate}
-                </p>
-                <img src={article.article_img_url} />
+                <div className="article-card-details">
+                    <p className="article-topic">{article.topic[0].toUpperCase() + article.topic.slice(1)}</p>
+                    <p className="article-votes">Votes: {article.votes}</p>
+                    <p className="article-author">By {article.author}</p>
+                    <p className="article-time">{postedTime}</p>
+                    <p className="article-date">{postedDate}</p>
+                </div>
+                <img className="article-card-img" src={article.article_img_url} />
             </article>
         </Link>
     );
