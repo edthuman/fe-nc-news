@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { handleDislikeClick, handleLikeClick } from "./click-handlers";
+import { handleDislikeClick, handleLikeClick } from "./article-click-handlers";
 import "./VoteArticle.css"
 
 function VoteArticle({ article_id, votes }) {
