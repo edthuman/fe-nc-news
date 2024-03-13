@@ -1,0 +1,18 @@
+#add-comment-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#add-comment-input {
+    width: 100%;
+    min-height: 100px;
+    margin: 1em 1em 0.5em 1em;
+    resize: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+.submit-comment-button {
+    margin: 0.5em 1em 1em 1em;
+    padding: 0.5em;
+}

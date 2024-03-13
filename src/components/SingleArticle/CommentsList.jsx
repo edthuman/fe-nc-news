@@ -3,8 +3,9 @@ import { getCommentsFromArticleID } from "../../api";
 import SingleComment from "./SingleComment";
 import "./CommentsList.css"
 import Loading from "../Loading/Loading";
+import AddCommentButton from "./AddCommentButton";
 
-function CommentsList(article_id) {
+function CommentsList({article_id}) {
     const [comments, setComments] = useState([]);
     const [areCommentsLoading, setAreCommentsLoading] = useState(true)
 
@@ -15,7 +16,9 @@ function CommentsList(article_id) {
         });
     }, []);
 
-    return (areCommentsLoading ? <Loading/> :
+    return <>
+    <AddCommentButton article_id={article_id} setComments={setComments}/>
+    {areCommentsLoading ? <Loading/> :
         (<section id="comment-list">
             {comments.map((comment) => {
                 return (
@@ -23,7 +26,8 @@ function CommentsList(article_id) {
                 );
             })}
         </section>)
-    );
+    }
+    </>
 }
 
 export default CommentsList;
