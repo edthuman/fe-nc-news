@@ -37,9 +37,18 @@ function updateArticleVotes(article_id, voteIncrement) {
     );
 }
 
+function getAllUsers() {
+    return axios
+    .get("https://northcoders-news-c5lb.onrender.com/api/users")
+    .then((response) => {
+        return response.data.users;
+    })
+}
+
 export {
     getAllArticles,
     getSingleArticle,
     getCommentsFromArticleID,
     updateArticleVotes,
+    getAllUsers
 };
