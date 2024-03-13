@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { handleCommentPost } from "./article-click-handlers";
-import "./AddCommentForm.css"
+import { handleCommentPost } from "../article-click-handlers";
+import "./AddCommentForm.css";
 
-function AddCommentForm({ article_id, user, setComments }) {
+function AddCommentForm({ article_id, user, setComments, setIsAddCommentClicked }) {
     const [isCommentSubmitted, setIsCommentSubmitted] = useState(false);
     const [commentInput, setCommentInput] = useState("");
     const [isSubmitLoading, setIsSubmitLoading] = useState(false);
+    const [isSubmissonError, setIsSubmissionError] = useState(false)
 
     return (
         <form
@@ -18,9 +19,12 @@ function AddCommentForm({ article_id, user, setComments }) {
                     article_id,
                     user,
                     commentInput,
-                    setComments
+                    setComments,
+                    setIsAddCommentClicked,
+                    setIsSubmissionError
                 )
-            } id="add-comment-form"
+            }
+            id="add-comment-form"
         >
             <label htmlFor="add-comment">Type your comment here:</label>
             <textarea
@@ -32,12 +36,15 @@ function AddCommentForm({ article_id, user, setComments }) {
                 <p>Please wait...</p>
             ) : isCommentSubmitted ? (
                 <>
-                    <button className="submit-comment-button">Add comment</button>
+                    <button className="submit-comment-button">
+                        Add comment
+                    </button>
                     <p>Please enter a comment</p>
                 </>
             ) : (
                 <button className="submit-comment-button">Add comment</button>
             )}
+            {isSubmissonError ? <p>Comment failed to post</p>: null}
         </form>
     );
 }

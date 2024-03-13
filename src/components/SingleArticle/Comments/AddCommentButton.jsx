@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/User";
-import { handleAddCommentClick } from "./article-click-handlers";
+import { UserContext } from "../../../contexts/User";
+import { handleAddCommentClick } from "../article-click-handlers";
 import AddCommentForm from "./AddCommentForm";
 import "./AddCommentButton.css";
 
@@ -15,6 +15,7 @@ function AddCommentButton({ article_id, setComments }) {
             article_id={article_id}
             user={user}
             setComments={setComments}
+            setIsAddCommentClicked={setIsAddCommentClicked}
         />
     ) : (
         <button
