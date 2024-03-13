@@ -1,4 +1,4 @@
-import { postComment, updateArticleVotes } from "../../api";
+import { deleteCommentByID, postComment, updateArticleVotes } from "../../api";
 
 function handleLikeClick(article_id, setVoteCount, setHasErrorOccurred) {
     setVoteCount((currVoteCount) => currVoteCount + 1);
@@ -66,9 +66,23 @@ function handleCommentPost(
     }
 }
 
+function handleDeleteComment(comment_id, setIsDeleteLoading, setIsCommentDeleted, setIsErrorDeletingComment) {
+    setIsDeleteLoading(true)
+    setIsErrorDeletingComment(false)
+    deleteCommentByID(comment_id)
+    .then(() => {
+        setIsCommentDeleted(true)
+    })
+    .catch((err) => {
+        setIsErrorDeletingComment(true)
+        setIsDeleteLoading(false)
+    })
+}
+
 export {
     handleLikeClick,
     handleDislikeClick,
     handleAddCommentClick,
     handleCommentPost,
+    handleDeleteComment
 };
