@@ -38,20 +38,31 @@ function handleCommentPost(
     article_id,
     username,
     comment,
-    setComments
+    setComments,
+    setIsAddCommentClicked,
+    setIsSubmissionError
 ) {
     e.preventDefault();
+    setIsSubmissionError(false);
     setIsCommentSubmitted(true);
     if (comment.length) {
-        setIsSubmitLoading(true)
-        postComment(article_id, username, comment).then((response) => {
-            setComments((currComments) => {
-                return [response, ...currComments];
+        setIsSubmitLoading(true);
+        postComment(article_id, username, comment)
+            .then((response) => {
+                setComments((currComments) => {
+                    return [response, ...currComments];
+                });
+                setIsSubmitLoading(false);
+                setCommentInput("");
+                setIsCommentSubmitted(false);
+                setIsAddCommentClicked(false);
+                setIsSubmissionError(false);
+            })
+            .catch((err) => {
+                setIsSubmissionError(true);
+                setIsSubmitLoading(false);
+                setIsCommentSubmitted(false);
             });
-            setIsSubmitLoading(false);
-            setCommentInput("");
-            setIsCommentSubmitted(false);
-        });
     }
 }
 
