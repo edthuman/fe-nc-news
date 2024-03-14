@@ -61,6 +61,12 @@ function postComment(article_id, username, comment) {
         });
 }
 
+function deleteCommentByID(comment_id) {
+    return axios.delete(
+        `https://northcoders-news-c5lb.onrender.com/api/comments/${comment_id}`
+    );
+}
+
 export {
     getAllArticles,
     getSingleArticle,
@@ -68,4 +74,5 @@ export {
     updateArticleVotes,
     getAllUsers,
     postComment,
+    deleteCommentByID,
 };

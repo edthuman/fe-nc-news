@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./SingleArticle.css";
 import Loading from "../Loading/Loading";
-import CommentsList from "./CommentsList";
+import CommentsList from "./Comments/CommentsList";
 import { getSingleArticle } from "../../api";
 import VoteArticle from "./VoteArticle";
 

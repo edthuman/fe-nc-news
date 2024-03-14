@@ -1,5 +1,6 @@
 .comment {
     border: solid 2px green;
+    min-height: 6em;
 }
 
 header {
@@ -32,4 +33,14 @@ header {
 
 .comment-votes {
     margin: 1em;
+}
+
+.delete-successful {
+    text-align: center;
+    margin: 2.5em;
+}
+
+.delete-comment-button {
+    width: 100%;
+    padding: 0.5em;
 }
