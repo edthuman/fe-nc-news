@@ -1,16 +1,16 @@
 import axios from "axios";
 
-function getAllArticles() {
+function getAllArticles(sortCriteria, orderCriteria) {
     return axios
-        .get("https://northcoders-news-c5lb.onrender.com/api/articles")
+        .get(`https://northcoders-news-c5lb.onrender.com/api/articles?sort_by=${sortCriteria}&order=${orderCriteria}`)
         .then((response) => {
             return response.data.articles;
         });
 }
 
-function getTopicArticles(topic) {
+function getTopicArticles(topic, sortCriteria, orderCriteria) {
     return axios
-    .get(`https://northcoders-news-c5lb.onrender.com/api/articles?topic=${topic}`)
+    .get(`https://northcoders-news-c5lb.onrender.com/api/articles?topic=${topic}&sort_by=${sortCriteria}&order=${orderCriteria}`)
     .then((response) => {
         return response.data.articles;
     });

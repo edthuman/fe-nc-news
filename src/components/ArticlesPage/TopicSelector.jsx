@@ -20,8 +20,8 @@ function TopicSelector({ selectedTopic, setSelectedTopic }) {
     }, [selectedTopic]);
 
     return (
-        <>
-            <label htmlFor="topic-selector">Display articles from:</label>
+        <form>
+            <label htmlFor="topic-selector">Display articles from: </label>
             <select
                 id="topic-selector"
                 onChange={(e) =>
@@ -43,7 +43,7 @@ function TopicSelector({ selectedTopic, setSelectedTopic }) {
                     );
                 })}
             </select>
-        </>
+        </form>
     );
 }
 

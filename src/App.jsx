@@ -9,6 +9,8 @@ import { useState } from "react";
 
 function App() {
     const [selectedTopic, setSelectedTopic] = useState("all");
+    const [selectedSortCriteria, setSelectedSortCriteria] = useState("created_at")
+    const [selectedSortOrder, setSelectedSortOrder] = useState("DESC")
 
     return (
         <div>
@@ -20,6 +22,10 @@ function App() {
                         <AllArticlesPage
                             selectedTopic={selectedTopic}
                             setSelectedTopic={setSelectedTopic}
+                            selectedSortCriteria={selectedSortCriteria}
+                            setSelectedSortCriteria={setSelectedSortCriteria}
+                            selectedSortOrder={selectedSortOrder} 
+                            setSelectedSortOrder={setSelectedSortOrder}
                         />
                     }
                 />
@@ -29,6 +35,10 @@ function App() {
                         <AllArticlesPage
                             selectedTopic={selectedTopic}
                             setSelectedTopic={setSelectedTopic}
+                            selectedSortCriteria={selectedSortCriteria}
+                            setSelectedSortCriteria={setSelectedSortCriteria}
+                            selectedSortOrder={selectedSortOrder} 
+                            setSelectedSortOrder={setSelectedSortOrder}
                         />
                     }
                 />
@@ -38,6 +48,10 @@ function App() {
                         <TopicArticlesPage
                         selectedTopic={selectedTopic}
                         setSelectedTopic={setSelectedTopic}
+                        selectedSortCriteria={selectedSortCriteria}
+                        setSelectedSortCriteria={setSelectedSortCriteria}
+                        selectedSortOrder={selectedSortOrder} 
+                        setSelectedSortOrder={setSelectedSortOrder}
                         />
                     }
                 />
