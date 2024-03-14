@@ -12,7 +12,7 @@ import { UserContext } from "../../contexts/User";
 import { Link } from "react-router-dom";
 import UserList from "./UserList";
 
-function Login() {
+function Login({selectedTopic}) {
     const [users, setUsers] = useState([]);
     const [isLoginLoading, setIsLoginLoading] = useState(true);
     const [usernameInput, setUsernameInput] = useState("");
@@ -32,8 +32,8 @@ function Login() {
         <Loading />
     ) : (
         <>
-            <Link to="/" className="back-link">
-                {"<<Back to all articles"}
+            <Link to={`/topic/${selectedTopic.toLowerCase()}`} className="back-link">
+                {`<<Back to ${selectedTopic.toLowerCase()} articles`}
             </Link>
             {user === "guest" ? (
                 <div id="login-page">

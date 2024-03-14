@@ -43,7 +43,7 @@ function App() {
                         />
                     }
                 />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login selectedTopic={selectedTopic}/>} />
                 <Route
                     path="/articles/:article_id"
                     element={<SingleArticle selectedTopic={selectedTopic} />}
