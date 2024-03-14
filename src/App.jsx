@@ -31,19 +31,6 @@ function App() {
                     }
                 />
                 <Route
-                    path="/all"
-                    element={
-                        <AllArticlesPage
-                            selectedTopic={selectedTopic}
-                            setSelectedTopic={setSelectedTopic}
-                            selectedSortCriteria={selectedSortCriteria}
-                            setSelectedSortCriteria={setSelectedSortCriteria}
-                            selectedSortOrder={selectedSortOrder} 
-                            setSelectedSortOrder={setSelectedSortOrder}
-                        />
-                    }
-                />
-                <Route
                     path="/topic/:topic"
                     element={
                         <TopicArticlesPage
