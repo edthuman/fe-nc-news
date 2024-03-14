@@ -6,6 +6,7 @@ import SingleArticle from "./components/SingleArticle/SingleArticle";
 import Login from "./components/Login/Login";
 import TopicArticlesPage from "./components/ArticlesPage/TopicArticlesPage";
 import { useState } from "react";
+import RouteNotFound from "./components/RouteNotFound/RouteNotFound";
 
 function App() {
     const [selectedTopic, setSelectedTopic] = useState("all");
@@ -59,6 +60,10 @@ function App() {
                 <Route
                     path="/articles/:article_id"
                     element={<SingleArticle selectedTopic={selectedTopic} />}
+                />
+                <Route
+                    path="/*"
+                    element={<RouteNotFound/>}
                 />
             </Routes>
         </div>
