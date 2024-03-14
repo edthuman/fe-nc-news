@@ -22,4 +22,8 @@ function handleLogOut(setUser) {
     setUser("guest")
 }
 
-export { handleLoginAttempt, handleLogOut };
+function handleSeeUsersClick(setIsSeeUserListClicked) {
+    setIsSeeUserListClicked(true)
+}
+
+export { handleLoginAttempt, handleLogOut, handleSeeUsersClick };
