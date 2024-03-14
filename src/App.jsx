@@ -43,7 +43,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="/:topic"
+                    path="/topic/:topic"
                     element={
                         <TopicArticlesPage
                         selectedTopic={selectedTopic}

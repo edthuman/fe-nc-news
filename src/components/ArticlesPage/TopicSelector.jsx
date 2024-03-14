@@ -10,13 +10,13 @@ function TopicSelector({ selectedTopic, setSelectedTopic }) {
 
     useEffect(() => {
         if (hasTopicUpdated) {
-            navigate(`/${selectedTopic.toLowerCase()}`);
+            navigate(`/topic/${selectedTopic.toLowerCase()}`);
         }
 
         getAllTopics().then((returnedTopics) => {
             setTopics(returnedTopics);
             setHasTopicUpdated(false);
-        });
+        })
     }, [selectedTopic]);
 
     return (
