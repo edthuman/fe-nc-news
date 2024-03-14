@@ -5,21 +5,25 @@ import Loading from "../Loading/Loading";
 import CommentsList from "./Comments/CommentsList";
 import { getSingleArticle } from "../../api";
 import VoteArticle from "./VoteArticle";
+import ArticleNotFound from "./ArticleNotFound";
 
 function SingleArticle({ selectedTopic }) {
     const { article_id } = useParams();
     const [article, setArticle] = useState({});
     const [isArticleLoading, setIsArticleLoading] = useState(true);
+    const [isErrorFetchingArticle, setIsErrorFetchingArticle] = useState(false)
     const postedDateTime = article.created_at;
 
     useEffect(() => {
+        setIsErrorFetchingArticle(false)
         getSingleArticle(article_id).then((returnedArticle) => {
             setArticle(returnedArticle);
             setIsArticleLoading(false);
-        });
+        }).catch((err) => setIsErrorFetchingArticle(true))
     }, []);
 
-    return isArticleLoading ? (
+    return isErrorFetchingArticle? <ArticleNotFound/> : (
+        isArticleLoading ? (
         <>
             <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
                 {`<<Back to ${selectedTopic.toLowerCase()} articles`}
@@ -52,7 +56,7 @@ function SingleArticle({ selectedTopic }) {
             <h3>Comments ({article.comment_count})</h3>
             <CommentsList article_id={article_id} />
         </>
-    );
+    ))
 }
 
 export default SingleArticle;
