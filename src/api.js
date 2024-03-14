@@ -8,6 +8,22 @@ function getAllArticles() {
         });
 }
 
+function getTopicArticles(topic) {
+    return axios
+    .get(`https://northcoders-news-c5lb.onrender.com/api/articles?topic=${topic}`)
+    .then((response) => {
+        return response.data.articles;
+    });
+}
+
+function getAllTopics() {
+    return axios
+        .get("https://northcoders-news-c5lb.onrender.com/api/topics")
+        .then((response) => {
+            return response.data.topics;
+        });
+}
+
 function getSingleArticle(article_id) {
     return axios
         .get(
@@ -75,4 +91,6 @@ export {
     getAllUsers,
     postComment,
     deleteCommentByID,
+    getAllTopics,
+    getTopicArticles,
 };
