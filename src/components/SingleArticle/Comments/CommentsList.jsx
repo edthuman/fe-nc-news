@@ -13,7 +13,7 @@ function CommentsList({ article_id }) {
         getCommentsFromArticleID(article_id).then((returnedComments) => {
             setComments(returnedComments);
             setAreCommentsLoading(false);
-        });
+        }).catch((err)=> setAreCommentsLoading(false))
     }, []);
 
     return (
