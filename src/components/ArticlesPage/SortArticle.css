@@ -1,0 +1,11 @@
+#sort-form {
+    margin: 0.5em 0em;
+    display: flex;
+    flex-wrap: wrap;
+    label {
+        margin-right: 0.4em;
+    }
+    select {
+        margin-right: auto;
+    }
+}
