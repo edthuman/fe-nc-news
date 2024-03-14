@@ -3,7 +3,7 @@ import ArticleCard from "./ArticleCard";
 import Loading from "../Loading/Loading";
 import { getTopicArticles } from "../../api";
 import TopicSelector from "./TopicSelector";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SortArticle from "./SortArticles";
 import TopicNotFound from "./TopicNotFound";
 
@@ -19,13 +19,8 @@ function TopicArticlesPage({
     const [areArticlesLoading, setAreArticlesLoading] = useState(true);
     const [isTopicInvalid, setIsTopicInvalid] = useState(false);
     const { topic } = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
-        if (topic.toLowerCase() === "all") {
-            navigate("/");
-        }
-
         setIsTopicInvalid(false);
         setAreArticlesLoading(true);
         getTopicArticles(topic, selectedSortCriteria, selectedSortOrder)
