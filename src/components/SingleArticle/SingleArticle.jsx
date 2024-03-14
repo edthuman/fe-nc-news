@@ -22,22 +22,14 @@ function SingleArticle({ selectedTopic }) {
     return isArticleLoading ? (
         <>
             <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
-                {`<<Back to ${
-                    selectedTopic === "All"
-                        ? "all"
-                        : selectedTopic.toLowerCase()
-                } articles`}
+                {`<<Back to ${selectedTopic.toLowerCase()} articles`}
             </Link>
             <Loading />
         </>
     ) : (
         <>
             <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
-                {`<<Back to ${
-                    selectedTopic === "All"
-                        ? "all"
-                        : selectedTopic.toLowerCase()
-                } articles`}
+                {`<<Back to ${selectedTopic.toLowerCase()} articles`}
             </Link>
             <h2>{article.title}</h2>
             <div id="single-article-details">
