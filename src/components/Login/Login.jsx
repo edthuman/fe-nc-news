@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import "./Login.css";
 import { getAllUsers } from "../../api";
-import { handleLogOut, handleLoginAttempt } from "./user-click-handler";
+import {
+    handleLogOut,
+    handleLoginAttempt,
+    handleSeeUsersClick,
+} from "./user-click-handler";
 import Loading from "../Loading/Loading";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/User";
 import { Link } from "react-router-dom";
+import UserList from "./UserList";
 
 function Login() {
     const [users, setUsers] = useState([]);
@@ -13,6 +18,7 @@ function Login() {
     const [usernameInput, setUsernameInput] = useState("");
     const [hasAttemptedLogin, setHasAttemptedLogin] = useState(false);
     const [isLoginAttemptValid, setIsLoginAttemptValid] = useState(false);
+    const [isSeeUserListClicked, setIsSeeUserListClicked] = useState(false);
     const { user, setUser } = useContext(UserContext);
 
     useEffect(() => {
@@ -69,6 +75,18 @@ function Login() {
                             </p>
                         </>
                     ) : null}
+                    <p>Can't remember your username?</p>
+                    {isSeeUserListClicked ? (
+                        <UserList users={users}/>
+                    ) : (
+                        <button
+                            onClick={() =>
+                                handleSeeUsersClick(setIsSeeUserListClicked)
+                            }
+                        >
+                            See list of users
+                        </button>
+                    )}
                 </div>
             ) : (
                 <div id="logged-in-message">
