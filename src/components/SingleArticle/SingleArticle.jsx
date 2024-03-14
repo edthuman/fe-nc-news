@@ -32,7 +32,7 @@ function SingleArticle({ selectedTopic }) {
         </>
     ) : (
         <>
-            <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
+            <Link to={`/topic/${selectedTopic.toLowerCase()}`} className="back-link">
                 {`<<Back to ${selectedTopic.toLowerCase()} articles`}
             </Link>
             <h2>{article.title}</h2>
