@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { handleDeleteComment } from "../../article-click-handlers"
+import { handleDeleteComment } from "../../single-article-click-handlers"
 
 function DeleteComment({comment_id, setIsCommentDeleted}) {
     const [isDeleteLoading, setIsDeleteLoading] =useState(false)
