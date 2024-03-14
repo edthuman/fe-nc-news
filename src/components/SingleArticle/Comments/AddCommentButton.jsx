@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../../contexts/User";
-import { handleAddCommentClick } from "../article-click-handlers";
+import { handleAddCommentClick } from "../single-article-click-handlers";
 import AddCommentForm from "./AddCommentForm";
 import "./AddCommentButton.css";
 

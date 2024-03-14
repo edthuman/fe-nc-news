@@ -6,7 +6,7 @@ import CommentsList from "./Comments/CommentsList";
 import { getSingleArticle } from "../../api";
 import VoteArticle from "./VoteArticle";
 
-function SingleArticle() {
+function SingleArticle({ selectedTopic }) {
     const { article_id } = useParams();
     const [article, setArticle] = useState({});
     const [isArticleLoading, setIsArticleLoading] = useState(true);
@@ -21,15 +21,23 @@ function SingleArticle() {
 
     return isArticleLoading ? (
         <>
-            <Link to="/" className="back-link">
-                {"<<Back to all articles"}
+            <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
+                {`<<Back to ${
+                    selectedTopic === "All"
+                        ? "all"
+                        : selectedTopic.toLowerCase()
+                } articles`}
             </Link>
             <Loading />
         </>
     ) : (
         <>
-            <Link to="/" className="back-link">
-                {"<<Back to all articles"}
+            <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
+                {`<<Back to ${
+                    selectedTopic === "All"
+                        ? "all"
+                        : selectedTopic.toLowerCase()
+                } articles`}
             </Link>
             <h2>{article.title}</h2>
             <div id="single-article-details">
@@ -46,7 +54,7 @@ function SingleArticle() {
                 </p>
                 <p className="article-time">{postedDateTime.slice(11, 16)}</p>
             </div>
-            <VoteArticle article_id={article_id} votes={article.votes}/>
+            <VoteArticle article_id={article_id} votes={article.votes} />
             <img src={article.article_img_url} />
             <p>{article.body}</p>
             <h3>Comments ({article.comment_count})</h3>

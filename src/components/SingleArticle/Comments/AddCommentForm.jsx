@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { handleCommentPost } from "../article-click-handlers";
+import { handleCommentPost } from "../single-article-click-handlers";
 import "./AddCommentForm.css";
 
 function AddCommentForm({ article_id, user, setComments, setIsAddCommentClicked }) {
