@@ -16,7 +16,7 @@ function TopicSelector({ selectedTopic, setSelectedTopic }) {
         getAllTopics().then((returnedTopics) => {
             setTopics(returnedTopics);
             setHasTopicUpdated(false);
-        })
+        });
     }, [selectedTopic]);
 
     return (
@@ -24,14 +24,13 @@ function TopicSelector({ selectedTopic, setSelectedTopic }) {
             <label htmlFor="topic-selector">Display articles from: </label>
             <select
                 id="topic-selector"
-                onChange={(e) =>
+                onClick={(e) =>
                     handleTopicSelection(
                         e,
                         setSelectedTopic,
                         setHasTopicUpdated
                     )
                 }
-                value={selectedTopic}
                 selected={selectedTopic}
             >
                 <option>All</option>

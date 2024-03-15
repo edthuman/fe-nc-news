@@ -5,7 +5,7 @@ import { getTopicArticles } from "../../api";
 import TopicSelector from "./TopicSelector";
 import { useParams } from "react-router-dom";
 import SortArticle from "./SortArticles";
-import TopicNotFound from "./TopicNotFound";
+import NotFound from "../NotFound/NotFound";
 
 function TopicArticlesPage({
     selectedTopic,
@@ -34,7 +34,7 @@ function TopicArticlesPage({
     }, [topic, selectedSortCriteria, selectedSortOrder]);
 
     return isTopicInvalid ? (
-        <TopicNotFound
+        <NotFound
             selectedTopic={selectedTopic}
             setSelectedTopic={setSelectedTopic}
         />
