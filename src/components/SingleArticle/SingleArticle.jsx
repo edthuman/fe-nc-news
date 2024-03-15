@@ -5,25 +5,28 @@ import Loading from "../Loading/Loading";
 import CommentsList from "./Comments/CommentsList";
 import { getSingleArticle } from "../../api";
 import VoteArticle from "./VoteArticle";
-import ArticleNotFound from "./ArticleNotFound";
+import NotFound from "../NotFound/NotFound";
 
 function SingleArticle({ selectedTopic }) {
     const { article_id } = useParams();
     const [article, setArticle] = useState({});
     const [isArticleLoading, setIsArticleLoading] = useState(true);
-    const [isErrorFetchingArticle, setIsErrorFetchingArticle] = useState(false)
+    const [isErrorFetchingArticle, setIsErrorFetchingArticle] = useState(false);
     const postedDateTime = article.created_at;
 
     useEffect(() => {
-        setIsErrorFetchingArticle(false)
-        getSingleArticle(article_id).then((returnedArticle) => {
-            setArticle(returnedArticle);
-            setIsArticleLoading(false);
-        }).catch((err) => setIsErrorFetchingArticle(true))
+        setIsErrorFetchingArticle(false);
+        getSingleArticle(article_id)
+            .then((returnedArticle) => {
+                setArticle(returnedArticle);
+                setIsArticleLoading(false);
+            })
+            .catch((err) => setIsErrorFetchingArticle(true));
     }, []);
 
-    return isErrorFetchingArticle? <ArticleNotFound/> : (
-        isArticleLoading ? (
+    return isErrorFetchingArticle ? (
+        <NotFound />
+    ) : isArticleLoading ? (
         <>
             <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
                 {`<<Back to ${selectedTopic.toLowerCase()} articles`}
@@ -32,7 +35,10 @@ function SingleArticle({ selectedTopic }) {
         </>
     ) : (
         <>
-            <Link to={`/${selectedTopic.toLowerCase()}`} className="back-link">
+            <Link
+                to={`/topic/${selectedTopic.toLowerCase()}`}
+                className="back-link"
+            >
                 {`<<Back to ${selectedTopic.toLowerCase()} articles`}
             </Link>
             <h2>{article.title}</h2>
@@ -56,7 +62,7 @@ function SingleArticle({ selectedTopic }) {
             <h3>Comments ({article.comment_count})</h3>
             <CommentsList article_id={article_id} />
         </>
-    ))
+    );
 }
 
 export default SingleArticle;

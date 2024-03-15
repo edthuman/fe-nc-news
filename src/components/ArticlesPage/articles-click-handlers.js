@@ -1,5 +1,3 @@
-import { getAllArticles } from "../../api";
-
 function handleTopicSelection(e, setSelectedTopic, setHasTopicUpdated) {
     setSelectedTopic(e.target.value);
     setHasTopicUpdated(true);
@@ -8,7 +6,6 @@ function handleTopicSelection(e, setSelectedTopic, setHasTopicUpdated) {
 function handleSortCriteriaSelection(e, 
     setSelectedSortCriteria
 ) {
-    const newSortCriteria = e.target.value
     setSelectedSortCriteria(e.target.value);
 }
 

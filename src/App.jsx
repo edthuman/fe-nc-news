@@ -6,7 +6,7 @@ import SingleArticle from "./components/SingleArticle/SingleArticle";
 import Login from "./components/Login/Login";
 import TopicArticlesPage from "./components/ArticlesPage/TopicArticlesPage";
 import { useState } from "react";
-import RouteNotFound from "./components/RouteNotFound/RouteNotFound";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
     const [selectedTopic, setSelectedTopic] = useState("all");
@@ -31,19 +31,6 @@ function App() {
                     }
                 />
                 <Route
-                    path="/all"
-                    element={
-                        <AllArticlesPage
-                            selectedTopic={selectedTopic}
-                            setSelectedTopic={setSelectedTopic}
-                            selectedSortCriteria={selectedSortCriteria}
-                            setSelectedSortCriteria={setSelectedSortCriteria}
-                            selectedSortOrder={selectedSortOrder} 
-                            setSelectedSortOrder={setSelectedSortOrder}
-                        />
-                    }
-                />
-                <Route
                     path="/topic/:topic"
                     element={
                         <TopicArticlesPage
@@ -56,14 +43,14 @@ function App() {
                         />
                     }
                 />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login selectedTopic={selectedTopic}/>} />
                 <Route
                     path="/articles/:article_id"
                     element={<SingleArticle selectedTopic={selectedTopic} />}
                 />
                 <Route
                     path="/*"
-                    element={<RouteNotFound/>}
+                    element={<NotFound selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>}
                 />
             </Routes>
         </div>

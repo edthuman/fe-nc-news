@@ -24,7 +24,7 @@ function AllArticlesPage({
                 setArticles(returnedArticles);
                 setAreArticlesLoading(false);
             }
-        );
+        )
     }, [selectedSortCriteria, selectedSortOrder]);
 
     return areArticlesLoading ? (
